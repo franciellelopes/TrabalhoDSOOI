@@ -23,10 +23,10 @@ class TelaProduto:
       return {"codigo": codigo, "nome": nome, "valor": valor, "quantidade": quantidade}
 
     def mostra_dados_cadastrados(self, codigo: int, nome: str, valor: float, quantidade: int):
-      print("Codigo: ", str(codigo))
+      print("Codigo: ", codigo)
       print("Nome: ", nome)
-      print("Valor: ", str(valor))
-      print("Quantidade: ", str(quantidade))
+      print("Valor: ", valor)
+      print("Quantidade: ",quantidade)
 
     def requisita_dado_remover(self):
       print("------REMOVER PRODUTO------")

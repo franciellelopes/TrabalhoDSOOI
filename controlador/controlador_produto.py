@@ -13,11 +13,11 @@ class ControladorProduto:
 
   def adiciona(self):
     dados = self.__tela_produto.requisita_dados_cadastro()
-    novo_produto = Produto(dados["codigo"],["nome"],["valor"],["quantidade"])
+    novo_produto = Produto(dados["codigo"],dados["nome"],dados["valor"],dados["quantidade"])
     self.__produtos.append(novo_produto)
 
   def remove(self):
-    codigo = self.__tela_produto.requisita_dados_remover()
+    codigo = self.__tela_produto.requisita_dado_remover()
     for produto in self.__produtos:
       if produto.codigo == codigo:
         produto_remover = (produto)
@@ -29,13 +29,11 @@ class ControladorProduto:
     for produto in self.__produtos:
       if produto.codigo == codigo:
         dados = self.__tela_produto.atualiza_produto()
-        produto.nome = dados.nome
-        produto.valor = dados.valor
-        produto.quantidade = dados.quantidade
+        produto = (dados["nome"],dados["valor"],dados["quantidade"])
 
   def lista(self):
     for produto in self.__produtos:
-      self.__tela_produto.mostra_dados_cadastrados(produto.codigo, produto.nome, produto.valor, produto.quantidade)
+      self.__tela_produto.mostra_dados_cadastrados(produto.codigo,produto.nome, produto.valor, produto.quantidade)
 
   def abre_tela_inicial(self):
     opcoes = {1: self.adiciona,2: self.remove,3: self.atualiza,4: self.lista,5: self.imprime_relatorio,0: self.finaliza_tela}

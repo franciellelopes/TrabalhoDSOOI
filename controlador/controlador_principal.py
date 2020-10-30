@@ -11,7 +11,6 @@ class ControladorPrincipal():
     self.__controlador_cliente = ControladorCliente()
     self.__controlador_funcionario = ControladorFuncionario(self)
     self.__controlador_produto = ControladorProduto()
-  
     self.__tela_principal = TelaPrincipal(self)
     self.__controle = True
 

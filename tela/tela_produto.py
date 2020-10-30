@@ -11,7 +11,7 @@ class TelaProduto:
       print("5 - Imprimir Relatório de Estoque")
       print("0 - Voltar")
     
-      opcao = int(input("Escolha a opção: "))
+      opcao = self.le_numero_inteiro("Escolha a opcao: ", [1,2,3,4,5,0])
       return opcao
 
     def requisita_dados_cadastro(self):

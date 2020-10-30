@@ -1,7 +1,7 @@
 from tela.tela_produto import TelaProduto
 from entidade.produto import Produto
-
-class ControladorProduto:
+from controlador.abstract_controlador import AbstractControlador
+class ControladorProduto(AbstractControlador):
 
   def __init__(self):
     self.__produtos = []
@@ -15,6 +15,7 @@ class ControladorProduto:
     dados = self.__tela_produto.requisita_dados_cadastro()
     novo_produto = Produto(dados["codigo"],dados["nome"],dados["valor"],dados["quantidade"])
     self.__produtos.append(novo_produto)
+
 
   def remove(self):
     codigo = self.__tela_produto.requisita_dado_remover()
@@ -34,9 +35,11 @@ class ControladorProduto:
         produto.valor = dados["valor"]
         produto.quantidade = dados["quantidade"]
 
+
   def lista(self):
     for produto in self.__produtos:
       self.__tela_produto.mostra_dados_cadastrados(produto.codigo,produto.nome, produto.valor, produto.quantidade)
+
 
   def abre_tela_inicial(self):
     opcoes = {1: self.adiciona,2: self.remove,3: self.atualiza,4: self.lista,5: self.imprime_relatorio,0: self.finaliza_tela}

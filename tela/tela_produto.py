@@ -27,6 +27,7 @@ class TelaProduto:
       print("Nome: ", nome)
       print("Valor: ", valor)
       print("Quantidade: ",quantidade)
+      print("")
 
     def requisita_dado_remover(self):
       print("------REMOVER PRODUTO------")
@@ -41,6 +42,7 @@ class TelaProduto:
       nome = input("Digite o novo nome: ")
       valor = float(input("Digite o novo valor: "))
       quantidade = int(input("Digite a nova quantidade: "))
+
       return {"nome": nome, "valor": valor, "quantidade": quantidade}
 
     def avisos(self):

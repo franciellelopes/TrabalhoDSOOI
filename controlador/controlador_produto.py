@@ -28,8 +28,11 @@ class ControladorProduto:
     codigo = self.__tela_produto.requisita_dado_atualizar()
     for produto in self.__produtos:
       if produto.codigo == codigo:
+        
         dados = self.__tela_produto.atualiza_produto()
-        produto = (dados["nome"],dados["valor"],dados["quantidade"])
+        produto.nome = dados["nome"]
+        produto.valor = dados["valor"]
+        produto.quantidade = dados["quantidade"]
 
   def lista(self):
     for produto in self.__produtos:
